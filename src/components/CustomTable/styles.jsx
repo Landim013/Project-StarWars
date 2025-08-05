@@ -3,14 +3,17 @@ import styled from "styled-components";
 
 export const TableWrapper = styled.div`
   width: 100%;
+  border-radius: 8px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border: 2px solid
     ${({ theme, $headerColor }) =>
-      theme.colors[$headerColor] || theme.colors.yellow};
-  border-bottom: none;
+      theme.colors[$headerColor] || theme.colors.blue};
+  border-bottom: 2px solid
+    ${({ theme, $headerColor }) =>
+      theme.colors[$headerColor] || theme.colors.blue};
   @media (max-width: 768px) {
-    border: 1px solid ${({ theme }) => theme.colors.gray || "#ccc"};
+    border: 1px solid ${({ theme }) => theme.colors.blue};
     border-radius: 8px;
   }
 `;
@@ -27,32 +30,32 @@ export const Table = styled.table`
 `;
 
 export const TableHeader = styled.th`
-  text-align: left;
+  text-align: center;
+
   padding: 12px;
   background-color: ${({ $headerColor, theme }) =>
     theme.colors[$headerColor] || "trasparent"};
 
-  color: ${({ $textColor, theme }) => theme.colors[$textColor] || "#000"};
-  width: ${({ $size }) => $size || "auto"};
+  color: ${({ $textColor, theme }) =>
+    theme.colors[$textColor] || theme.colors.yellow};
+  width: ${({ $size }) => $size || "150px"};
 
   border-bottom: 1px solid
-    ${({ theme, $headerColor }) => theme.colors[$headerColor] || "#fff"};
+    ${({ theme, $headerColor }) =>
+      theme.colors[$headerColor] || theme.colors.blue};
 `;
 
 export const TableCell = styled.td`
-  padding: 12px;
+  text-align: center;
+  padding: 8px 0px;
   border: none;
-  width: ${({ $size }) => $size || "auto"};
-  color: ${({ $textColor, theme }) => theme.colors[$textColor] || "#000"};
-  border-bottom: 4px solid
-    ${({ $bordeColor, theme }) => theme.colors[$bordeColor] || "#fff"};
+  width: ${({ $size }) => $size || "150px"};
+  color: ${({ theme }) => theme.colors.gelo};
 `;
-// export const TableCell = styled.td`
-//   padding: 12px;
-//   border-bottom: 1px solid
-//     ${({ $bordeColor, theme }) => theme.colors[$bordeColor] || "#fff"};
-
-//   box-shadow: 0 4px 8px -2px ${({ theme }) => theme.colors.red};
-//   width: ${({ $size }) => $size || "auto"};
-//   color: ${({ $textColor, theme }) => theme.colors[$textColor] || "#000"};
-// `;
+export const SaberUp = styled.img`
+  width: 26px;
+`;
+export const SaberDown = styled.img`
+  width: 26px;
+  transform: rotate(180deg);
+`;

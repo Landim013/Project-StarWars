@@ -15,6 +15,8 @@ function CustomInput({
   registerOptions,
   required = false,
   maxLength,
+  onChange,
+  value,
 }) {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -28,7 +30,11 @@ function CustomInput({
           placeholder={placeholder}
           $height={height}
           maxLength={maxLength}
-          {...register(name, { required, ...registerOptions })}
+          value={value}
+          onChange={onChange}
+          {...(register
+            ? register(name, { required, ...registerOptions })
+            : {})}
         />
         {isPassword && (
           <S.ToggleButton

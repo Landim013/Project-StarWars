@@ -16,3 +16,16 @@ export const CotentTable = styled.div`
     width: 100%;
   }
 `;
+export const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-bottom: 16px;
+
+  @media (max-width: 768px) {
+    margin-top: 2px;
+    gap: 0px;
+    flex-direction: column;
+    width: 50%;
+  }
+`;
