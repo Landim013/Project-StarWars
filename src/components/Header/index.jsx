@@ -5,18 +5,14 @@ import user from "../../assets/icons/user.svg";
 import Logo from "../../assets/images/star-wars-4.svg";
 import * as S from "./styles";
 
-function Header({ isDark, toggleTheme }) {
+function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <S.Header>
       <S.Logo src={Logo} alt="Star Wars" />
-
+      <S.ForceText>Que a força esteja com você...</S.ForceText>
       <S.Actions>
-        <S.IconButton onClick={toggleTheme}>
-          {/* {isDark ? <BsSun size={24} /> : <BsMoon size={24} />} */}
-        </S.IconButton>
-
         <S.UserWrapper>
           <S.IconButton onClick={() => setMenuOpen(!menuOpen)}>
             <S.User src={user} />

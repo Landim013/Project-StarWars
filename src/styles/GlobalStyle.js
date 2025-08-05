@@ -7,6 +7,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
+    @font-face {
+    font-family: 'StarJedi';
+    src: url('/src/assets/fonts/Starjhol.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
   body {
     background-color: ${({ theme }) => theme.colors.background};

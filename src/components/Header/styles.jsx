@@ -2,20 +2,60 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
-  padding: 12px 28px;
+  padding: 16px 28px;
   background-color: ${({ theme }) => theme.colors.background};
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
 `;
-export const Cabecario = styled.img`
-  width: 100%;
-`;
 
 export const Logo = styled.img`
   width: 200px;
 `;
+export const ForceText = styled.div`
+  font-size: 38px;
+  margin-right: 120px;
+  font-weight: bold;
+  font-family: "StarJedi", sans-serif;
+  color: ${({ theme }) => theme.colors.yellow};
+  background: linear-gradient(90deg, #ffe347, #ffc502);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid ${({ theme }) => theme.colors.yellow};
+  width: fit-content;
+
+  animation: typing 10s steps(70, end);
+  animation-delay: 0s, 18s;
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 45%;
+    }
+  }
+
+  @keyframes blink {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: ${({ theme }) => theme.colors.yellow};
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    text-align: center;
+  }
+`;
+
 export const User = styled.img`
   width: 80px;
 `;
@@ -46,10 +86,11 @@ export const DropdownMenu = styled.div`
   top: 80px;
   right: -10px;
   background-color: ${({ theme }) => theme.colors.background};
-  border: 1px solid ${({ theme }) => theme.colors.gray};
+  border: 1px solid ${({ theme }) => theme.colors.yellow};
   border-radius: 4px;
   min-width: 100px;
   z-index: 99;
+  text-align: center;
 `;
 
 export const MenuItem = styled.div`
@@ -58,6 +99,6 @@ export const MenuItem = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.gray};
+    border: 1px solid ${({ theme }) => theme.colors.yellow};
   }
 `;

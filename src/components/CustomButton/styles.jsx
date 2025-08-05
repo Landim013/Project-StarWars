@@ -13,6 +13,12 @@ export const ContainerButton = styled.button`
   transition: all 0.3s ease;
   width: ${({ $width }) => $width || "100%"};
   height: ${({ $height }) => $height || "auto"};
+  ${({ theme, $fontColor, $active }) =>
+    $active &&
+    `
+    box-shadow: 0 0 20px ${theme.colors[$fontColor]};
+    outline: 2px solid ${theme.colors[$fontColor]};
+  `}
   &:hover {
     box-shadow: 0 0 12px ${({ theme }) => theme.colors.red};
     outline: 2px solid {

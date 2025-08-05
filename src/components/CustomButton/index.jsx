@@ -9,6 +9,7 @@ function CustomButton({
   width,
   height,
   border,
+  active,
 }) {
   return (
     <S.ContainerButton
@@ -19,6 +20,7 @@ function CustomButton({
       $fontColor={fontColor}
       onClick={onClick}
       $border={border}
+      $active={active}
     >
       {text}
     </S.ContainerButton>

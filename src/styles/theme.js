@@ -13,5 +13,6 @@ export const theme = {
     yellowSaber: "#FFE347",
     yellow: "#ffc502",
     orange: "#FF9E4D",
+    purple: "#A368FF",
   },
 };

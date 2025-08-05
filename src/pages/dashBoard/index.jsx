@@ -109,8 +109,8 @@ function Home() {
             fontColor={"red"}
             background="none"
             width="100%"
-            aria-label="Entrar"
             onClick={() => handleClick("people", "red")}
+            active={category === "people"}
           />
           <CustomButton
             text="planets"
@@ -119,14 +119,16 @@ function Home() {
             width="100%"
             aria-label="Entrar"
             onClick={() => handleClick("planets", "orange")}
+            active={category === "planets"}
           />
           <CustomButton
             text="starShips"
-            fontColor={"blue"}
+            fontColor={"purple"}
             background="none"
             width="100%"
             aria-label="Entrar"
-            onClick={() => handleClick("starships", "blue")}
+            onClick={() => handleClick("starships", "purple")}
+            active={category === "starships"}
           />
           <CustomButton
             text="species"
@@ -135,6 +137,7 @@ function Home() {
             width="100%"
             aria-label="Entrar"
             onClick={() => handleClick("species", "green")}
+            active={category === "species"}
           />
         </S.ButtonGroup>
         <CustomInput
