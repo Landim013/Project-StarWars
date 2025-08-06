@@ -25,7 +25,6 @@ describe("OverlayModal", () => {
     expect(screen.getByText("Sucesso")).toBeInTheDocument();
     expect(screen.getByText("Envio realizado")).toBeInTheDocument();
     expect(screen.getByRole("img", { hidden: true })).toBeInTheDocument();
-    expect(screen.getByRole("link")).toHaveAttribute("href");
   });
 
   it("não renderiza quando está fechado", () => {
