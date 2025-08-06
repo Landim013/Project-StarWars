@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 16px 28px;
   background-color: ${({ theme }) => theme.colors.background};
   display: flex;
@@ -12,6 +15,9 @@ export const Header = styled.header`
 
 export const Logo = styled.img`
   width: 200px;
+  @media (max-width: 768px) {
+    width: 20%;
+  }
 `;
 export const ForceText = styled.div`
   font-size: 38px;
@@ -51,13 +57,22 @@ export const ForceText = styled.div`
   }
 
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
+    margin: 0;
+    width: 160px;
+    white-space: normal;
+    height: 40px;
+    animation: none;
+    border-right: none;
   }
 `;
 
 export const User = styled.img`
   width: 80px;
+  @media (max-width: 768px) {
+    width: 40px;
+  }
 `;
 export const Actions = styled.div`
   display: flex;
@@ -91,6 +106,11 @@ export const DropdownMenu = styled.div`
   min-width: 100px;
   z-index: 99;
   text-align: center;
+  @media (max-width: 768px) {
+    top: 50px;
+    right: -10px;
+    min-width: 60px;
+  }
 `;
 
 export const MenuItem = styled.div`

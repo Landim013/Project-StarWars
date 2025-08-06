@@ -1,6 +1,4 @@
 import { useState } from "react";
-// import { BsMoon, BsSun } from "react-icons/bs";
-// import { FaUserCircle } from "react-icons/fa";
 import user from "../../assets/icons/user.svg";
 import Logo from "../../assets/images/star-wars-4.svg";
 import * as S from "./styles";

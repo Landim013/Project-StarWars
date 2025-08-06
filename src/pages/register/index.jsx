@@ -20,22 +20,29 @@ function Register() {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isValid, isDirty },
+    formState: { errors },
   } = useForm({
     mode: "onChange",
     defaultValues: { email: "", confirmPassword: "", password: "" },
   });
 
   const onSubmit = (data) => {
-    console.log("Dados enviados:", data);
-    console.log(isValid, isDirty);
+    const userData = {
+      email: data.email,
+      password: data.password,
+    };
+
+    localStorage.setItem("userRegister", JSON.stringify(userData));
+
     setModalOpen(true);
     setModalInfo({
       title: "Sucesso",
-      description: "Seu cadastro foi concluido!",
+      description: "Seu cadastro foi concluído!",
       border: "green",
       fontColor: "green",
     });
+
+    console.log("Cadastro salvo:", userData);
   };
 
   function validatePassword(password) {

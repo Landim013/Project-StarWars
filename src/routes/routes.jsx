@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-// import ProtectedRoute from "../components/ProtectedRoute";
 
 import DefaultLayout from "../layouts";
 import Home from "../pages/dashBoard";
 import Login from "../pages/login";
 import Register from "../pages/register";
+import ProtectedRoute from "../utils/protectedRoute";
 
 export default function AppRoutes() {
   return (
@@ -14,9 +14,11 @@ export default function AppRoutes() {
       <Route
         path="/home"
         element={
-          <DefaultLayout>
-            <Home />
-          </DefaultLayout>
+          <ProtectedRoute>
+            <DefaultLayout>
+              <Home />
+            </DefaultLayout>
+          </ProtectedRoute>
         }
       />
     </Routes>

@@ -5,10 +5,13 @@ import saberBlue from "../../assets/images/saberBlue.png";
 import imageStar from "../../assets/images/star-wars-4.svg";
 import CustomButton from "../../components/CustomButton";
 import CustomInput from "../../components/CustomInput";
+import Loading from "../../components/Loading";
 import OverlayModal from "../../components/OverlayModal";
+import { useAuth } from "../../hooks/useAuth";
 import * as S from "./styles";
 function Login() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [modalInfo, setModalInfo] = useState({
     title: "",
     description: "",
@@ -17,22 +20,27 @@ function Login() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isDirty },
+    formState: { errors },
   } = useForm({
     mode: "onChange",
     defaultValues: { email: "" },
   });
 
+  const { login } = useAuth();
+
   const onSubmit = (data) => {
-    console.log("Dados enviados:", data);
-    setModalOpen(true);
-    setModalInfo({
-      title: "Error",
-      description: "E-mail ou senha incorreto!",
-      colorButton: "red",
-    });
-    console.log(isValid, isDirty);
+    const success = login(data.email, data.password);
+    if (!success) {
+      setLoading(false);
+      setModalOpen(true);
+      setModalInfo({
+        title: "Erro",
+        description: "E-mail ou senha incorreto!",
+        colorButton: "red",
+      });
+    }
   };
+  if (loading) return <Loading />;
   return (
     <S.Container>
       <S.LoginCard>
@@ -76,7 +84,6 @@ function Login() {
               <CustomButton
                 text="Entrar"
                 type="submit"
-                // disabled={!isDirty || !isValid}
                 fontColor={"red"}
                 background="none"
                 width="100%"

@@ -1,4 +1,3 @@
-// src/components/DataTable/styles.jsx
 import styled from "styled-components";
 
 export const TableWrapper = styled.div`
@@ -26,6 +25,7 @@ export const Table = styled.table`
   background-color: transparent;
   @media (max-width: 768px) {
     width: 100%;
+    font-size: 20px;
   }
 `;
 
@@ -38,11 +38,15 @@ export const TableHeader = styled.th`
 
   color: ${({ $textColor, theme }) =>
     theme.colors[$textColor] || theme.colors.yellow};
-  width: ${({ $size }) => $size || "150px"};
+  min-width: ${({ $size }) => $size || "150px"};
 
   border-bottom: 1px solid
     ${({ theme, $headerColor }) =>
       theme.colors[$headerColor] || theme.colors.blue};
+  @media (max-width: 768px) {
+    padding: 10px 2px;
+    width: 150px;
+  }
 `;
 
 export const TableCell = styled.td`
@@ -54,8 +58,16 @@ export const TableCell = styled.td`
 `;
 export const SaberUp = styled.img`
   width: 26px;
+  @media (max-width: 768px) {
+    width: 26px;
+    margin-bottom: -4px;
+  }
 `;
 export const SaberDown = styled.img`
   width: 26px;
   transform: rotate(180deg);
+  @media (max-width: 768px) {
+    width: 26px;
+    margin-bottom: -4px;
+  }
 `;

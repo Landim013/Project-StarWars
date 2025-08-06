@@ -6,6 +6,9 @@ export const Container = styled.div`
   justify-content: center;
   width: 100%;
   padding: 60px 0;
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
 `;
 
 export const CotentTable = styled.div`
@@ -23,9 +26,9 @@ export const ButtonGroup = styled.div`
   margin-bottom: 16px;
 
   @media (max-width: 768px) {
-    margin-top: 2px;
-    gap: 0px;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
+    gap: 12px;
+    align-items: stretch;
   }
 `;

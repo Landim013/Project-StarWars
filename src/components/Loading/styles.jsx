@@ -26,5 +26,5 @@ export const Title = styled.h2`
   margin-top: 24px;
   font-size: 22px;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.black || "#333"};
+  color: ${({ theme }) => theme.colors.yellow || "#333"};
 `;

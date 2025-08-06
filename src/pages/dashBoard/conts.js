@@ -39,7 +39,7 @@ export const columns = {
       render: (item) => item.passengers,
     },
     {
-      title: "Classe de nave estelar",
+      title: "Classe estelar",
 
       render: (item) => item.starship_class,
     },

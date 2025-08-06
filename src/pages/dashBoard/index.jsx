@@ -3,18 +3,19 @@ import { getSwapiCategory } from "../../api";
 import CustomButton from "../../components/CustomButton";
 import CustomInput from "../../components/CustomInput";
 import DataTable from "../../components/CustomTable";
+import Loading from "../../components/Loading";
 import { columns } from "./conts";
 import * as S from "./styles";
 
-// people, planets,starShips,vehicles,species,films
 function Home() {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState("people");
   const [colorHeader, setColorHeader] = useState("red");
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     async function loadData() {
+      setLoading(true);
       const results = await getSwapiCategory(category);
 
       if (category === "people") {
@@ -53,10 +54,7 @@ function Home() {
         );
 
         setData(updatedResults);
-      }
-
-      // 🌍 Novo bloco para category === "species"
-      else if (category === "species") {
+      } else if (category === "species") {
         const updatedResults = await Promise.all(
           results.map(async (item) => {
             const homeworldUrl = item.homeworld;
@@ -74,7 +72,7 @@ function Home() {
 
             return {
               ...item,
-              homeworld: homeworldName, // sobrescreve a URL pelo nome
+              homeworld: homeworldName,
             };
           })
         );
@@ -83,6 +81,7 @@ function Home() {
       } else {
         setData(results);
       }
+      setLoading(false);
     }
 
     loadData();
@@ -99,13 +98,13 @@ function Home() {
         .includes(searchTerm.toLowerCase())
     );
   });
-
+  if (loading) return <Loading />;
   return (
     <S.Container>
       <S.CotentTable>
         <S.ButtonGroup>
           <CustomButton
-            text="people"
+            text="Pessoas"
             fontColor={"red"}
             background="none"
             width="100%"
@@ -113,7 +112,7 @@ function Home() {
             active={category === "people"}
           />
           <CustomButton
-            text="planets"
+            text="Planetas"
             fontColor={"orange"}
             background="none"
             width="100%"
@@ -122,7 +121,7 @@ function Home() {
             active={category === "planets"}
           />
           <CustomButton
-            text="starShips"
+            text="Naves estelares"
             fontColor={"purple"}
             background="none"
             width="100%"
@@ -131,7 +130,7 @@ function Home() {
             active={category === "starships"}
           />
           <CustomButton
-            text="species"
+            text="Especies"
             fontColor={"green"}
             background="none"
             width="100%"
