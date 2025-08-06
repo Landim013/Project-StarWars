@@ -108,7 +108,7 @@ function Register() {
               disabled={false}
               messageError={errors.email?.message}
               registerOptions={{ required: "Nome obrigatório" }}
-              aria-label="Nome do usuário"
+              aria-label="E-mail do usuário"
             />
             <CustomInput
               name="password"
@@ -135,7 +135,7 @@ function Register() {
                   value === watch("password") || "As senhas não coincidem",
               }}
               messageError={errors.confirmPassword?.message}
-              aria-label="Senha do usuário"
+              aria-label="Confirmação de senha do usuário"
             />
 
             <S.ButtonGroup>

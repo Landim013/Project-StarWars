@@ -59,7 +59,7 @@ function Login() {
               disabled={false}
               messageError={errors.email?.message}
               registerOptions={{ required: "Nome obrigatório" }}
-              aria-label="Nome do usuário"
+              aria-label="E-mail do usuário"
             />
             <CustomInput
               name="password"

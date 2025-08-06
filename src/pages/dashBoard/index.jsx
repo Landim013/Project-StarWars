@@ -110,13 +110,14 @@ function Home() {
             width="100%"
             onClick={() => handleClick("people", "red")}
             active={category === "people"}
+            aria-label="Botão de personagens"
           />
           <CustomButton
             text="Planetas"
             fontColor={"orange"}
             background="none"
             width="100%"
-            aria-label="Entrar"
+            aria-label="Botão de planetas"
             onClick={() => handleClick("planets", "orange")}
             active={category === "planets"}
           />
@@ -125,16 +126,16 @@ function Home() {
             fontColor={"purple"}
             background="none"
             width="100%"
-            aria-label="Entrar"
+            aria-label="Botão de naves estelares"
             onClick={() => handleClick("starships", "purple")}
             active={category === "starships"}
           />
           <CustomButton
-            text="Especies"
+            text="Botão de especies"
             fontColor={"green"}
             background="none"
             width="100%"
-            aria-label="Entrar"
+            aria-label="Especies"
             onClick={() => handleClick("species", "green")}
             active={category === "species"}
           />
@@ -143,6 +144,7 @@ function Home() {
           placeholder="Buscar..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          aria-label="Campo de pesquisa"
         />
 
         <DataTable
