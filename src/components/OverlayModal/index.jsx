@@ -31,13 +31,8 @@ function OverlayModal({
             />
           </S.ContainerButton>
         </S.Content>
-        <a
-          href="https://zbra.dev/"
-          target="_blank"
-          aria-label="Ir para o site da ZBRA, abre em nova aba"
-        >
-          <S.Logo src={logo} alt="Logo ZBRA" />
-        </a>
+
+        <S.Logo src={logo} alt="Logo Star Wars" />
       </S.ModalContainer>
     </S.ContainerOverlay>
   );

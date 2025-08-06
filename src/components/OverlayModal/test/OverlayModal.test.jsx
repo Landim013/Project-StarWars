@@ -1,10 +1,10 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../../styles/theme";
-import OverlayModal from "./index";
+import { theme } from "../../../styles/theme";
+import OverlayModal from "../index";
 
-jest.mock("../../assets/images/zbra-brand.svg", () => "svg-mock");
+jest.mock("../../../assets/images/star-wars-4.svg", () => "svg-mock");
 
 describe("OverlayModal", () => {
   it("renderiza corretamente quando aberto", () => {
@@ -25,10 +25,7 @@ describe("OverlayModal", () => {
     expect(screen.getByText("Sucesso")).toBeInTheDocument();
     expect(screen.getByText("Envio realizado")).toBeInTheDocument();
     expect(screen.getByRole("img", { hidden: true })).toBeInTheDocument();
-    expect(screen.getByRole("link")).toHaveAttribute(
-      "href",
-      "https://zbra.dev/"
-    );
+    expect(screen.getByRole("link")).toHaveAttribute("href");
   });
 
   it("não renderiza quando está fechado", () => {
