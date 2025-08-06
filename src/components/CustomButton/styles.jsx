@@ -20,7 +20,7 @@ export const ContainerButton = styled.button`
     outline: 2px solid ${theme.colors[$fontColor]};
   `}
   &:hover {
-    box-shadow: 0 0 12px ${({ theme }) => theme.colors.red};
+    box-shadow: 0 0 12px ${({ theme, $border }) => theme.colors[$border]};
     outline: 2px solid {
       ${({ theme }) => theme.colors.red}
     }

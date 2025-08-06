@@ -29,7 +29,7 @@ export const StyledInput = styled.input`
 `;
 
 export const ErrorText = styled.span`
-  color: ${({ theme }) => theme.colors.error};
+  color: ${({ theme }) => theme.colors.red};
   /* color: #ffc502; */
   font-size: 12px;
   margin-top: 8px;

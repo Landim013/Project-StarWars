@@ -10,6 +10,7 @@ function OverlayModal({
   colorButton,
   border,
   fontColor,
+  onClick,
 }) {
   if (!isOpen) return null;
 
@@ -25,7 +26,7 @@ function OverlayModal({
               background={colorButton || "transparent"}
               fontColor={fontColor}
               width="150px"
-              onClick={onClose}
+              onClick={onClick ? onClick : onClose}
               border={border}
             />
           </S.ContainerButton>

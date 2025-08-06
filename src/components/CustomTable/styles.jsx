@@ -58,6 +58,7 @@ export const TableCell = styled.td`
 `;
 export const SaberUp = styled.img`
   width: 26px;
+  margin-bottom: -4px;
   @media (max-width: 768px) {
     width: 26px;
     margin-bottom: -4px;
@@ -65,6 +66,7 @@ export const SaberUp = styled.img`
 `;
 export const SaberDown = styled.img`
   width: 26px;
+  margin-bottom: -4px;
   transform: rotate(180deg);
   @media (max-width: 768px) {
     width: 26px;

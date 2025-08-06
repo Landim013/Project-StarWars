@@ -104,8 +104,10 @@ export const DropdownMenu = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.yellow};
   border-radius: 4px;
   min-width: 100px;
+  width: 120px;
   z-index: 99;
   text-align: center;
+
   @media (max-width: 768px) {
     top: 50px;
     right: -10px;
@@ -117,8 +119,9 @@ export const MenuItem = styled.div`
   padding: 8px 12px;
   color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.yellow};
 
   &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.yellow};
+    border: 2px solid ${({ theme }) => theme.colors.yellow};
   }
 `;

@@ -15,7 +15,7 @@ function Login() {
   const [modalInfo, setModalInfo] = useState({
     title: "",
     description: "",
-    colorButton: "",
+    fontColor: "",
   });
   const {
     register,
@@ -36,7 +36,7 @@ function Login() {
       setModalInfo({
         title: "Erro",
         description: "E-mail ou senha incorreto!",
-        colorButton: "red",
+        fontColor: "red",
       });
     }
   };
@@ -103,7 +103,7 @@ function Login() {
         isOpen={modalOpen}
         title={modalInfo.title}
         description={modalInfo.description}
-        colorButton={modalInfo.colorButton}
+        fontColor={modalInfo.fontColor}
         onClose={() => setModalOpen(false)}
         aria-label="Modal de resultado"
       />

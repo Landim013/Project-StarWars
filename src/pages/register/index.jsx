@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import saberRed from "../../assets/images/saberRed.png";
 import imageStar from "../../assets/images/star-wars-4.svg";
 import CustomButton from "../../components/CustomButton";
@@ -9,10 +10,10 @@ import * as S from "./styles";
 
 function Register() {
   const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
   const [modalInfo, setModalInfo] = useState({
     title: "",
     description: "",
-    colorButton: "",
     border: "",
     fontColor: "",
   });
@@ -23,17 +24,41 @@ function Register() {
     formState: { errors },
   } = useForm({
     mode: "onChange",
-    defaultValues: { email: "", confirmPassword: "", password: "" },
+    defaultValues: {
+      email: "",
+      confirmPassword: "",
+      password: "",
+      onClick: "",
+    },
   });
 
+  function redirect() {
+    navigate("/login");
+  }
   const onSubmit = (data) => {
-    const userData = {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const alreadyExists = users.some((u) => u.email === data.email);
+
+    if (alreadyExists) {
+      setModalOpen(true);
+      setModalInfo({
+        title: "Alerta",
+        description: "Usuário já cadastrado!",
+        border: "green",
+        fontColor: "green",
+        onClick: redirect,
+      });
+      return;
+    }
+
+    const newUser = {
       email: data.email,
       password: data.password,
+      authenticated: false,
     };
 
-    localStorage.setItem("userRegister", JSON.stringify(userData));
-
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
     setModalOpen(true);
     setModalInfo({
       title: "Sucesso",
@@ -41,8 +66,6 @@ function Register() {
       border: "green",
       fontColor: "green",
     });
-
-    console.log("Cadastro salvo:", userData);
   };
 
   function validatePassword(password) {
@@ -141,6 +164,7 @@ function Register() {
         fontColor={modalInfo.fontColor}
         border={modalInfo.border}
         onClose={() => setModalOpen(false)}
+        onClick={modalInfo.onClick}
         aria-label="Modal de resultado"
       />
     </S.Container>

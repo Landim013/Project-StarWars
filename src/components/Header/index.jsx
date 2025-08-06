@@ -1,11 +1,12 @@
 import { useState } from "react";
 import user from "../../assets/icons/user.svg";
 import Logo from "../../assets/images/star-wars-4.svg";
+import { useAuth } from "../../contexts/authContext";
 import * as S from "./styles";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { logout, deleteAccount } = useAuth();
   return (
     <S.Header>
       <S.Logo src={Logo} alt="Star Wars" />
@@ -18,7 +19,8 @@ function Header() {
 
           {menuOpen && (
             <S.DropdownMenu>
-              <S.MenuItem onClick={() => console.log("Sair")}>Sair</S.MenuItem>
+              <S.MenuItem onClick={logout}>Sair</S.MenuItem>
+              <S.MenuItem onClick={deleteAccount}>Excluir conta</S.MenuItem>
             </S.DropdownMenu>
           )}
         </S.UserWrapper>
