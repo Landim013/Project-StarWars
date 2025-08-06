@@ -51,7 +51,7 @@ export const TableHeader = styled.th`
 
 export const TableCell = styled.td`
   text-align: center;
-  padding: 8px 0px;
+  padding: 8px 2px;
   border: none;
   width: ${({ $size }) => $size || "150px"};
   color: ${({ theme }) => theme.colors.gelo};
