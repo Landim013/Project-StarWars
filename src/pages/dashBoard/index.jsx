@@ -104,7 +104,7 @@ function Home() {
       <S.CotentTable>
         <S.ButtonGroup>
           <CustomButton
-            text="Pessoas"
+            text="Personagens"
             fontColor={"red"}
             background="none"
             width="100%"
